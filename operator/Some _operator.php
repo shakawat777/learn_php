@@ -58,8 +58,37 @@ echo "\n";
  echo $$$p;
  echo "\n";
  */
-$x = 10.365;
-var_dump($x);
+$x=12;
+$y=5;
+$z=7;
+// $z += $x;
+// echo "The number is {$z}";
+echo "\n";
+// $x++;
+// ++$y;
+// echo "The number is {$x}";
+// echo "\n";
+// echo "The number is {$y}";
+/*
+echo $z++;
+echo "\n";
+ echo $z;
+ echo "\n";
+ echo ++$x;
+ */
+// Floor and ceiling.
+/*
+echo (floor(2.5));
+echo "\n";
+echo ceil(22.4);
+*/
+$age = 35;
+if($age>=15 && $age<=22){
+    echo "You are a teenager";
+}
+else{
+    echo "You are not a teenager";
+}
 
 
 ?>
