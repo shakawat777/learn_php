@@ -35,10 +35,32 @@ echo"divide = $divide";
 */
 
 //modulus
-
+/*
 $x=80;
 $y=9;
 $modulus=$x%$y;
 echo"modulus = $modulus";
+*/
+/*
+$AC=20;
+echo "\n";
+echo $AC;
+$AC=30;
+echo "\n";
+echo $AC;
+echo "\n";
+*/
+/*
+ $age=33;
+ $word="age";
+ echo "\n";
+ $p="word";
+ echo $$$p;
+ echo "\n";
+ */
+$x = 10.365;
+var_dump($x);
+
+
 ?>
 
