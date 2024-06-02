@@ -47,12 +47,27 @@ for ($i=1;$i<=3;$i++) {
 echo $m;
 */
 
+/*
 for ($i=1;$i<=3;$i++) {
 
     echo $i;
     echo "\n";
 }
  echo "$i";
+*/
+// Write a program how to find factorial.
+
+$f=1;
+
+for ($i=1;$i<=6;$i++) {
+    $f=$f*$i;
+    echo  $i . "! = " . $f . "\n";
+}
+echo "\n" . "factorial=$f";
+
+
+// Write a program how to find factorial using recursion .
+
 
 
 ?>
