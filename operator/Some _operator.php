@@ -63,7 +63,7 @@ $y=5;
 $z=7;
 // $z += $x;
 // echo "The number is {$z}";
-echo "\n";
+//echo "\n";
 // $x++;
 // ++$y;
 // echo "The number is {$x}";
@@ -82,6 +82,8 @@ echo (floor(2.5));
 echo "\n";
 echo ceil(22.4);
 */
+
+/*
 $age = 35;
 if($age>=15 && $age<=22){
     echo "You are a teenager";
@@ -89,7 +91,13 @@ if($age>=15 && $age<=22){
 else{
     echo "You are not a teenager";
 }
+*/
+// Turnare operators
 
+$a = 30;
+$b = 40;
+$result =($a>$b)?$a:$b;
+echo $result;
 
 ?>
 
