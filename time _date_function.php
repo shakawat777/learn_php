@@ -38,6 +38,7 @@ for ($day = 1; $day<  $dayInMonth; $day++){
   <tbody>
 
   <?php
+  /*
 date_default_timezone_set('Asia/Dhaka');
 $year = date('Y');
 $month = date('m');
@@ -48,21 +49,51 @@ for ($day = 1; $day<  $dayInMonth; $day++){
     // $formatedDate = date('D,F j/Y', strtotime( $dateString ));
     // echo $formatedDate. "\n";
 
-    $formatedDate = date('d', strtotime( $dateString ));
+     //$formatedDate = date('d', strtotime( $dateString ));
     $formatedDate1 = date('l', strtotime( $dateString ));
     $formatedDate2 = date('d', strtotime( $dateString ));
     $formatedDate3 = date('F', strtotime( $dateString ));
     $formatedDate4 = date('Y', strtotime( $dateString ));
+*/
+
+///////////////////////
+
+date_default_timezone_set('Asia/Dhaka');
+
+// Get the current year and month
+$year = date('Y');
+$month = date('m');
+
+// Get the number of days in the current month
+$daysInMonth = date('t');
+
+// Loop through each day of the current month
+for ($day = 1; $day <= $daysInMonth; $day++) {
+    // Create a date string for the current day
+    $dateString = sprintf('%d-%d-%d', $year, $month, $day);
+    // Convert the date string to a timestamp and format it
+    //$formattedDate = date('D, F j/Y', strtotime($dateString));
+
+    // Print the formatted date
+    //echo $formattedDate . "\n";
+    $formattedDate = date('d', strtotime($dateString));
+
+    $formattedDate1 = date('l', strtotime($dateString));
+    $formattedDate2 = date('dS', strtotime($dateString));
+    $formattedDate3 = date('F', strtotime($dateString));
+    $formattedDate4 = date('Y', strtotime($dateString));
 
 ?>
 
 
     <tr>
-      <th scope="row"><?php echo  $formatedDate ?></th>
-      <td><?php echo  $formatedDate1 ?></td>
-      <td><?php echo  $formatedDate2 ?></td>
-      <td><?php echo  $formatedDate3 ?></td>
-      <td><?php echo  $formatedDate4 ?></td>
+      <th scope="row">
+     <?php echo      $formattedDate ?> 
+    </th>
+      <td><?php echo $formattedDate1 ?></td>
+      <td><?php echo $formattedDate2 ?></td>
+      <td><?php echo $formattedDate3 ?></td>
+      <td><?php echo $formattedDate4 ?></td>
     </tr>
     <?php
     }
