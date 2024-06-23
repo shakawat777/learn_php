@@ -10,6 +10,6 @@ class Test{
     }
 }
 $user = new Test();
-$user ->setName("Welcome to new oop concept publcic with return value");
+$user ->setName("Welcome to new oop concept public with return value");
 $message = $user -> getName();
 echo $message;

@@ -30,6 +30,8 @@ $end = new start();
 $end -> setName("Welcome to new oop concept.");
 $end -> getName();
 */
+
+/*
 class oop{
     public $name;
 
@@ -48,3 +50,33 @@ $use = new oop();
 $use -> setName("hello American");
 $use1= $use ->getName();
 echo $use1;
+*/
+/*
+class Aoop{
+    public $application;
+    public function setName($newApplication){
+        $this ->application =$newApplication;
+    }
+    public function getName(){
+        echo $this->application;
+    }
+}
+$use = new Aoop();
+$use ->setName("applications");
+$use ->getName();
+*/
+
+class S{
+    public $name;
+    public function setName($newName){
+        $this ->name = $newName;
+    }
+    public function getName(){
+        return $this ->name;
+
+    }
+}
+$mySelf = new S();
+$mySelf->setName("Life a little  but");
+echo $mySelf->getName();
+// echo $message;
