@@ -66,6 +66,8 @@ $use ->setName("applications");
 $use ->getName();
 */
 
+
+/*
 class S{
     public $name;
     public function setName($newName){
@@ -80,3 +82,29 @@ $mySelf = new S();
 $mySelf->setName("Life a little  but");
 echo $mySelf->getName();
 // echo $message;
+
+*/
+
+
+class person{
+    public $personName;
+    public $personAge;
+    public $personGender;
+    public function Name(){
+        echo "This person name is ". $this->personName;
+    }
+    public function Age(){
+        echo "\nThis person age is ". $this -> personAge;
+    }
+    public function Gender(){
+        echo "\n This person gender is " . $this-> personGender;
+    }
+}
+$personDescriptions = new person();
+$personDescriptions -> personName = "Md. Shakawat hossain khan";
+$personDescriptions -> personAge = "25";
+$personDescriptions -> personGender = "Male";
+//method call 
+$personDescriptions -> Name();
+$personDescriptions -> Age();
+$personDescriptions -> Gender();
