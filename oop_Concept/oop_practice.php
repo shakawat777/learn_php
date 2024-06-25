@@ -86,6 +86,7 @@ echo $mySelf->getName();
 */
 
 
+/*
 class person{
     public $personName;
     public $personAge;
@@ -108,3 +109,30 @@ $personDescriptions -> personGender = "Male";
 $personDescriptions -> Name();
 $personDescriptions -> Age();
 $personDescriptions -> Gender();
+
+*/
+class Fund{
+    public $fund;
+    public function __construct($initialblance=0)
+    {
+        $this->fund = $initialblance;
+        echo "Bank Account";
+    }
+    public function depositFund($amount){
+        $this->fund += $amount;
+        echo "\n My Account Deposit Amount: " . $amount;
+    }
+    public function withdrawnFund($amount){
+        $this->fund -= $amount;
+        echo "\n My Account Withdrawn Amount: " . $amount;
+    }
+    public function getFund(){
+        echo "\n Total Amount: {$this->fund}" ;
+    }
+}
+$myfund = new Fund(2000);
+$myfund->getFund();
+$myfund->depositFund(500);
+$myfund -> getFund();
+$myfund -> withdrawnFund(300);
+$myfund -> getFund();

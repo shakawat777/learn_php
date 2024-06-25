@@ -24,4 +24,6 @@ $OurFund ->widthwidth(500);
 $OurFund-> getFund();
  $OurFund-> addFund(1500);
  $OurFund-> getFund();
+  //$OurFund->fund = 300;
+ //$OurFund-> getFund();
 ?>
