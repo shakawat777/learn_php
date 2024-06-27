@@ -111,6 +111,14 @@ $personDescriptions -> Age();
 $personDescriptions -> Gender();
 
 */
+
+
+//-------------------------------------------------------
+
+
+/*
+
+
 class Fund{
     public $fund;
     public function __construct($initialblance=0)
@@ -136,3 +144,20 @@ $myfund->depositFund(500);
 $myfund -> getFund();
 $myfund -> withdrawnFund(300);
 $myfund -> getFund();
+*/
+
+class personsInformation{
+    public $personName;
+    public $personAge;
+
+    public function __construct($personName,$personAge)
+    {
+        $this-> personName = $personName;
+        $this-> personAge = $personAge;
+    }
+    public function personDescription(){
+        echo "This person name is {$this->personName} and the age is " .$this ->personAge;
+    }
+}
+$personDetails = new personsInformation("Hossain",25);
+$personDetails -> personDescription();
