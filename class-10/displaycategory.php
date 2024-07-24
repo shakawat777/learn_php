@@ -18,6 +18,8 @@ class AdminBack
             die("DB connection error");
         }
     }
+
+   // For data fetch. data tule code
     public function add_category($data)
     {
         $ctg_name = $data['ctg_name'];
@@ -108,7 +110,7 @@ if (isset($_GET['status'])) {
                         <div class="btn-group">
 
                             <a href="" class="btn btn-danger">Delete</a>
-                            <a href="" class=" btn btn-info">Edit</a>
+                            <a href="editpage.php?status=edit&&id= <?php echo $row['ID'];?>" class=" btn btn-info">Edit</a>
                         </div>
                     </td>
 
