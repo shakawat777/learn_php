@@ -62,7 +62,7 @@ if (isset($_POST['ctg_btn'])) {
 }
 
 
-
+// Delete category.
 if (isset($_GET['status'])) {
     $get_id = $_GET['id'];
     if ($_GET['status'] = 'delete') {
@@ -109,7 +109,7 @@ if (isset($_GET['status'])) {
                     <td>
                         <div class="btn-group">
 
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a  href="?status=delete&&id= <?php echo $row['ID'];?>" class="btn btn-danger">Delete</a>
                             <a href="editpage.php?status=edit&&id= <?php echo $row['ID'];?>" class=" btn btn-info">Edit</a>
                         </div>
                     </td>

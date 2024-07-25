@@ -39,7 +39,7 @@ class AdminBack
         $name = $received_data['ctg_name'];
         $description = $received_data['ctg_des'];
 
-        $query = "UPDATE category SET ctg_name = '$name' , ctg_des  = '$description' WHERE id = $id";
+        $query = "UPDATE category SET ctg_name = '$name' , ctg_des  = '$description' WHERE id = '$id' ";
 
         $result = mysqli_query($this->conn,$query);
         if($result){
