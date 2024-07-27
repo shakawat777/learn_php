@@ -1,6 +1,6 @@
 <?php
-namespace App\controller;
-class student{
+namespace App\classes;
+class Home{
     public $name = "shakawat khan";
 
 }
