@@ -1,125 +1,155 @@
-<?php
-class AdminBack
-{
+<?php 
+
+
+
+ 
+
+
+class AdminBack{
     private $conn;
-
-    public function __construct()
-    {
-        $dbhost = "localhost";
-        $dbuser = "root";
-        $dbpass = "";
-        $dbname = "database1";
-        $this->conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-
-        if ($this->conn) {
-            //echo "Connected successfully";
-
-        } else {
-            die("DB connection error");
-        }
+  
+    public function __construct(){
+    $dbhost = "localhost" ;
+      $dbuser = "root"; 
+      $dbpass = "";
+      $dbname = "category";
+      $this->conn=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+  
+      if ($this->conn) {
+  //echo "Connected successfully";
+       
+       } 
+  
+     else {
+      die("DB connection error");
+     }
+  
     }
+public function add_category($data) {
+ $ctg_name=$data['category_name'];
+ $ctg_des=$data['category_description'];
 
-   // For data fetch. data tule code
-    public function add_category($data)
-    {
-        $ctg_name = $data['ctg_name'];
-        $ctg_des = $data['ctg_des'];
+$sql="INSERT INTO category(category_name,category_description) VALUES ('$ctg_name', '$ctg_des')";
+$result=mysqli_query($this->conn,$sql);
+if ($result){
+  $mgs="Data inserted succesfully" ; 
 
-        $sql = "INSERT INTO category(ctg_name,ctg_des) VALUES ('$ctg_name', '$ctg_des')";
-        $result = mysqli_query($this->conn, $sql);
-        if ($result) {
-            $mgs = "Data inserted succesfully";
-
-            return $mgs;
-        } else {
-            $mgs = "Data has not inserted !";
-
-            return $mgs;
-        }
-    }
-    public function display_category()
-    {
-        $sql = "SELECT*FROM category";
-        $result = mysqli_query($this->conn, $sql);
-
-        if ($result) {
-
-            return $result;
-        }
-    }
-
-
-    public function delete_category($id)
-    {
-        $query = "DELETE FROM category WHERE id=$id";
-        mysqli_query($this->conn, $query);
-    }
-}
-$obj = new AdminBack();
-
-if (isset($_POST['ctg_btn'])) {
-    $returnmgs = $obj->add_category($_POST);
+  return $mgs;
 }
 
+else{
+    $mgs="Data has not inserted !" ; 
 
-// Delete category.
-if (isset($_GET['status'])) {
-    $get_id = $_GET['id'];
-    if ($_GET['status'] = 'delete') {
-        $data = $obj->delete_category($get_id);
-    }
+    return $mgs;
+
 }
 
+  }
+  public function display_category(){
+    $sql="SELECT*FROM category";
+   $result=mysqli_query($this->conn,$sql);
+
+   if($result){
+
+    return $result;
+
+  } 
+  }
+
+
+  public function delete_category($id){
+    $query="DELETE FROM category WHERE id=$id";
+    mysqli_query($this->conn,$query);
+
+
+  }
+  
+  
+  
+  
+  }
+  $obj=new AdminBack();
+
+  if(isset($_POST['ctg_btn'])) {
+   $returnmgs=$obj->add_category($_POST);
+  }
+
+
+
+  if(isset($_GET['status'])){
+    $get_id=$_GET['id'];
+    if($_GET['status']='delete'){
+       $data=$obj->delete_category($get_id);
+        
+    }
+
+}
+
+  
+  
 ?>
+
 
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
 
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <title>Category Information</title>
+  </head>
+  <body>
+    
 
-    <table class="table caption-top">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Category_name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $data = $obj->display_category();
-            while ($row = mysqli_fetch_assoc($data)) {
+  <table class="table">
+  <thead class="thead-dark">
 
-            ?>
+  
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $data=$obj->display_category();
+    while($row=mysqli_fetch_assoc($data)){
+    
+    ?>
+  <tr>
+      <th scope="row"><?php echo $row['id']; ?></th>
+      <td><?php echo $row['category_name']; ?></td>
+      <td><?php echo $row['category_description']; ?></td>
+      <td>
+<div class="btn-group">
 
-                <tr>
-                    <th scope="row"><?php echo $row['ID']; ?></th>
-                    <td><?php echo $row['ctg_name']; ?></td>
-                    <td><?php echo $row['ctg_des']; ?></td>
-                    <td>
-                        <div class="btn-group">
+<a href="?status=delete&&id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+<a href="editpage.php?status=edit&&id=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
+</div>
 
-                            <a  href="?status=delete&&id= <?php echo $row['ID'];?>" class="btn btn-danger">Delete</a>
-                            <a href="editpage.php?status=edit&&id= <?php echo $row['ID'];?>" class=" btn btn-info">Edit</a>
-                        </div>
-                    </td>
+      </td>
+    </tr>
+  <?php } 
+  
+  ?>  
+  </tbody>
+</table>
+    <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-                </tr>
-
-            <?php } ?>
-        </tbody>
-    </table>
-</body>
-
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
 </html>
+
