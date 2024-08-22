@@ -44,6 +44,8 @@ Array
             $path = "photo.jpg";
             $basename = pathinfo($path, PATHINFO_FILENAME);
             $extension = pathinfo($path, PATHINFO_EXTENSION);
-            $image = $basename .time(). "_n" ."." . $extension;
+            // $image = $basename .time(). "_n" ."." . $extension;
+            // using unque_id:
+            $image = uniqid()."_" .time(). "_n" ."." . $extension;
             echo $image;
 ?>
