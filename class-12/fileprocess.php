@@ -40,5 +40,10 @@ Array
         echo $filename; //Output: photo
 
         */
-        
+        // Using time functions for file name extension:
+            $path = "photo.jpg";
+            $basename = pathinfo($path, PATHINFO_FILENAME);
+            $extension = pathinfo($path, PATHINFO_EXTENSION);
+            $image = $basename .time(). "_n" ."." . $extension;
+            echo $image;
 ?>
