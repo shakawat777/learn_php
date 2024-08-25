@@ -2,6 +2,8 @@
 
             <!-- Topbar Start -->
             <?php
+            // Create mastering manually: 
+            
             /*
             include_once('includes/navbar.php');
             include_once('includes/header.php');
