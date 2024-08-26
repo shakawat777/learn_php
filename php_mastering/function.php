@@ -15,4 +15,5 @@ function get_footer(){
     require('includes/footer.php');
 }
 
+
 ?>

@@ -94,7 +94,7 @@
                 </a>
                 <div class="collapse" id="sidebarTasks">
                     <ul class="nav-second-level">
-                        <li><a href="add-post.php">Add Post</a></li>
+                        <li><a href="add post.php">Add Post</a></li>
                         <li><a href="task-board.html">Manage Post</a></li>
                     </ul>
                 </div>
